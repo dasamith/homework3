@@ -7,6 +7,20 @@ function passGenerator() {
     var passLength = parseInt(length);
     console.log(parseInt(passLength));
 
+    var lengthGood = false;
+    while (lengthGood == false) {
+        if (passLength >= 8 && passLength <= 128) {
+            lengthGood = true;
+        } else {
+            var length = prompt("Select the length of the passward: (between 8 to 128)");
+            //converted string input to integer
+            var passLength = parseInt(length);
+            console.log(parseInt(passLength));
+            lengthGood = false;
+        }
+    }
+
+
     // created an empty variable to generate password from
     let value = "";
 
@@ -41,7 +55,7 @@ function passGenerator() {
     // created a boolean variable for user choice if he wants to include special charcter into value
     var char = confirm("Include Special Character? ");
     // if true, concate all the special charcter with value
-    if (lowCase == true) {
+    if (char == true) {
         value = value.concat("!@#$%^&*()_+");
     }
     console.log(value);
